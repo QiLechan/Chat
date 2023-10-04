@@ -32,7 +32,11 @@ public class Post {
         beans.add(messagesBean);
         json.setMessages(beans);
         String StringJson = new Gson().toJson(json);
-        String result= HttpUtil.post(url, StringJson);
-        Console.log(result);
+        String response= HttpUtil.post(url, StringJson);
+        JSONObject resultjson = JSONUtil.parseObj(response);
+        String result = resultjson.getStr("result");
+        String usage = JSONUtil.parseObj((resultjson.getStr("usage"))).getStr("total_tokens");
+        System.out.println(result);
+        System.out.println("使用Token数量：" + usage);
     }
 }

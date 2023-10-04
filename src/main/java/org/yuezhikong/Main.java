@@ -27,10 +27,12 @@ public class Main {
         }
         else{
             System.out.println("文心一言聊天测试");
-            System.out.println("请输入发送的信息：");
             Scanner scanner = new Scanner(System.in);
-            String Question = scanner.nextLine();
-            Post.chat(Question,APIKey,SecretKey);
+            while (true){
+                System.out.println("请输入发送的信息：");
+                String Question = scanner.nextLine();
+                Post.chat(Question,APIKey,SecretKey);
+            }
         }
     }
 }
