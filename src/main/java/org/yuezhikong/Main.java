@@ -1,7 +1,6 @@
 package org.yuezhikong;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.io.File;
 import java.util.Objects;
 import java.util.Properties;
@@ -31,7 +30,8 @@ public class Main {
             while (true){
                 System.out.println("请输入发送的信息：");
                 String Question = scanner.nextLine();
-                Post.chat(Question,APIKey,SecretKey);
+                String result = Post.chat(Question, APIKey, SecretKey);
+                Post.assistant(result);
             }
         }
     }
